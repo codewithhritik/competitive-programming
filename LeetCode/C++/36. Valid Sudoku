@@ -1,0 +1,45 @@
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+         int l,i,j,k;
+        unordered_map<char,int> row;
+        unordered_map<char,int> col;
+        for(i=0;i<9;i++)
+        {
+            for(j=0;j<9;j++)
+            {
+                if(row[board[i][j]]==1 && board[i][j]!='.')
+                    return false;
+                else
+                    row[board[i][j]]++;
+                
+                if(col[board[j][i]]==1 && board[j][i]!='.')
+                    return false;
+                else
+                    col[board[j][i]]++;
+            }
+            row.clear();
+            col.clear();
+        }
+        for(i=0;i<9;i+=3)
+            {
+                for(j=0;j<9;j+=3)
+                {
+                    row.clear();
+                    for(k=i;k<i+3;k++)
+                    {
+                        for(l=j;l<j+3;l++)
+                        {
+                            if(row[board[k][l]]==1 && board[k][l]!='.')
+                                return false;
+                            else
+                                row[board[k][l]]++;
+                        }
+                    }
+                }
+            }
+
+        return true;
+        
+    }
+};
