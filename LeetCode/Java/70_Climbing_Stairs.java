@@ -1,9 +1,7 @@
 // One Approach
-
+// Dynamic Programming Problem
 class Solution {
     public int climbStairs(int n) {
-        // Dynamic Programming Problem
-
         int[] dp = new int[n + 1];
         dp[0] = 1;
         dp[1] = 1;
@@ -15,8 +13,8 @@ class Solution {
     }
 }
 
-// Recursive Approach, Similar to Fibonacci
 
+// Recursive Approach, Similar to Fibonacci
 class Solution {
     public int climbStairs(int n) {
 	int memo[] = new int[n + 1];
